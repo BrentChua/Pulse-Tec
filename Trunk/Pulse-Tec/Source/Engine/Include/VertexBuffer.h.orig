@@ -1,0 +1,46 @@
+/**************************************************************************************
+*
+*	Copyright (C) 2011 Brent Andrew O. Chua - See LICENSE.txt for more info.
+*		
+*	Filename	-	VertexBuffer.h
+*
+*	Description -	
+*
+*	Comments	-	
+*
+*	Modification History:
+*			Name			   Date					Description
+*			MrCodeSushi	-	11/05/2011	-	Creation of this file
+**************************************************************************************/
+#ifndef _PSX_VERTEX_BUFFER_H_
+#define _PSX_VERTEX_BUFFER_H_
+
+#include "PulseSTD.h"
+#include "GraphicsTypes.h"
+#include "ResourcePoolItem.h"
+#include "GraphicsResource.h"
+#include "String.h"
+
+namespace Pulse
+{
+	struct VertexBufferDesc : public BaseResDesc
+	{
+		// TODO: Add constructor
+
+		virtual EResDescType::Type GetDescType( void ) { return EResDescType::VERTEX_BUFFER; }
+
+		EVertexBufferType::Type bufferType;
+		EPrimitiveType::Type	primitiveType;
+		SIZE_T					vertexSize;
+		SIZE_T					numVertices;
+		SIZE_T					numPrimitives;
+		void					*pData;
+	};
+
+	class VertexBuffer
+	{
+
+	};
+}
+
+#endif /* _PSX_VERTEX_BUFFER_H_ */

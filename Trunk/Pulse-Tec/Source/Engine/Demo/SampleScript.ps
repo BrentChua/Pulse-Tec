@@ -1,0 +1,117 @@
+// This is a sample script used to test Pulse Engine's PulseScript system.
+// Below shows some of the features already available.
+
+// A comment. An empty space follows below.
+
+/*						MULTI-LINE COMMENT
+	This is a multi-line comment. Multi-line comments 
+	can span multiple lines and PulseScript will strip
+	it all out until it hits the closing mult-line comment character.
+*/
+
+// Another comment
+
+
+Section pass // Comment in the same line as the code.
+{
+
+	String string = "PulseScript can take in strings!!!!";
+
+	String multiLineSting = "PulseScript can also take in multi-line strings!!!!\
+								This is the second line of a multi-line string.\
+								Third line of the multi-line string. Another string in the third line. \
+								Fourth line of the multi-string. This is the end of a multi-line string. ";
+	
+	String aString = <String> 
+		// This is multi-line string using string tag.
+		#include <iostream>
+		
+		using namespace std;
+		
+		int gGlobalVar = 0;
+		
+		int main( void ) 
+		{
+			cout << "Value of gGlobalVar is: " << gGlobalVar << endl;
+			return 0; 
+		}
+	</String>;
+	
+	// Supports boolean values
+	Bool bool1 = true;
+	
+	// Supports scalar types (i.e. int and float)
+	Float f = 3.987654321;
+	Int n1 = 5;
+	Int n2 = 10.9257; // This will automatically convert the value to int(floor, so the value will be 10).
+	    
+	// Supports section comments
+	Bool /*Yup, this is a section comment*/ bool2 = false;
+	/*Another section comment*/ Bool bool2 = false;
+	Bool /* section comment */bool3 /*another section comment*/ = true/*yet another section comment*/; /*and another*/ // And another...
+	
+	// Supports vectors too!!!
+	Vector2 vec2 = ( 1.0, 3.0f /*appending 'f' is optional*/ ); // 2D Vectors
+	Vector3 vec3 = ( 1.0, 3.0, 2.578 );							// 3D Vectors
+	Vector4 vec4 = ( 1.0, 3.0 , 2.578, 3.14159265 );			// 4D Vectors or Quaternions
+	/* If you haven't noticed I just pulled a pi there. lolz */
+	
+	/* Supports recursive sections (sections inside a section) */
+	Section Mesh
+	{
+		Section Material
+		{
+			String mergeMode	= "Blend";
+			String bumpMap		= "bump.tga";
+			String textureName	= "MeshTexture.tga";
+		};
+		
+		String meshName = "tiny.x"; // The infamouse DX character
+	};
+	
+	// Array of ints.
+	Int[5] indices1 = { 1, 2, 3, 4, 5 }; // We can explicitly define the size of an array
+	Int[9] indices2 = { 1, 2, 3,	\
+						4, 5, 6,	\
+						7, 8, 9,	\	\\ comma at the end is optional 
+	}; 
+	// NOTE: Another important thing is that only arrays and strings can define values in multiple lines.
+	Float[3] floatArray = { 3.256, 1.23, 456.789 };	// Float arrays
+	
+	Vector2[2] vert2dArray1 = { (3.0, 2.0), (2.56, 1.23) };
+	Vector2[3] vert2dArray2 = { (3, 2.0), (2.56, 1.23),	\
+								 (1.23, 4.56) };
+	/*
+	 You can't do things like this though: 
+		Vector3[2] bla = { ( 1.2, 2.2, \ // <--- Incomplete
+			2.1 ), (1,2,3 )};
+	*/
+	// TODO: We still need to implement these...
+	// Same variable name implicitly overrides the older one. Do something about this.
+	// Int[] indices3 = { 6,7,8,9,10 }; // We can probably do something like this in the future...
+};
+
+// Shader script template
+Section SampleShader
+{
+	String name = "PoopShader";
+	Int numConstants = 5;
+	
+	Section Constant1
+	{
+		String name = "projection";
+		String type = "matrix";
+		String semantic = "projection";
+	};
+	
+	Section Constant2
+	{
+		// ...
+	};
+	
+	
+	Section Pass
+	{
+		
+	};
+};

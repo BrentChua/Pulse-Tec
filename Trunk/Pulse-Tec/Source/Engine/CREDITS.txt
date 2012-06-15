@@ -1,0 +1,4 @@
+uses zlib compression.
+uses Doug Lea's Malloc.
+Some parts of the engine source code was derived from Wojciech Toman's nGene code.
+Some parts of the engine source code was derived from the Game Coding Complete code.

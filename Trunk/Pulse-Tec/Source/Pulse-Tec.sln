@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{52F12472-2B9F-4FFC-B210-99A0DED0F972}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		ConsoleDebug|Win32 = ConsoleDebug|Win32
+		ConsoleRelease|Win32 = ConsoleRelease|Win32
+		WindowDebug|Win32 = WindowDebug|Win32
+		WindowRelease|Win32 = WindowRelease|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52F12472-2B9F-4FFC-B210-99A0DED0F972}.ConsoleDebug|Win32.ActiveCfg = Win32ConsoleDebug|Win32
+		{52F12472-2B9F-4FFC-B210-99A0DED0F972}.ConsoleDebug|Win32.Build.0 = Win32ConsoleDebug|Win32
+		{52F12472-2B9F-4FFC-B210-99A0DED0F972}.ConsoleRelease|Win32.ActiveCfg = Win32ConsoleRelease|Win32
+		{52F12472-2B9F-4FFC-B210-99A0DED0F972}.ConsoleRelease|Win32.Build.0 = Win32ConsoleRelease|Win32
+		{52F12472-2B9F-4FFC-B210-99A0DED0F972}.WindowDebug|Win32.ActiveCfg = Win32WindowDebug|Win32
+		{52F12472-2B9F-4FFC-B210-99A0DED0F972}.WindowDebug|Win32.Build.0 = Win32WindowDebug|Win32
+		{52F12472-2B9F-4FFC-B210-99A0DED0F972}.WindowRelease|Win32.ActiveCfg = Win32WindowRelease|Win32
+		{52F12472-2B9F-4FFC-B210-99A0DED0F972}.WindowRelease|Win32.Build.0 = Win32WindowRelease|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

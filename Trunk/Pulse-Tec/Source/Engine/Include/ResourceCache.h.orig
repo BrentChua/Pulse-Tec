@@ -1,0 +1,67 @@
+/**************************************************************************************
+*
+*	Copyright (C) 2010 Brent Andrew O. Chua - See LICENSE.txt for more info.
+*		
+*	Filename	-	ResourceCache.h
+*
+*	Description -	Resource cache. Note that a resource pool is used to manage
+*						usuable game data(i.e. video textures, mesh, vertex buffers, etc.)
+*						while Resource cache manages "raw" data.
+*
+*	Comments	-
+*
+*	Modification History:
+*			Name			   Date					Description
+*			CodeSushi	-	01/30/2010	-	Creation of this file.
+*			CodeSushi	-	09/12/2010	-	Re-write ResourceCache.
+**************************************************************************************/
+
+#ifndef _PSX_RESOURCE_CACHE_H_
+#define _PSX_RESOURCE_CACHE_H_
+
+#include "PulseSTD.h"
+#include "ResourceFile.h"
+#include "String.h"
+#include "Map.h"
+#include "List.h"
+#include "SmartPointer.h"
+#include "NonCopyable.h"
+#include "HashTable.h"
+
+namespace Pulse
+{
+	class ResourceCache
+	{
+	public:
+
+		typedef ResourceFile::FSHFile FSHFile;
+		typedef SmartPointer< FSHFile > ResHandle;
+
+		ResourceCache( const UINT cacheSizeMB );
+		virtual ~ResourceCache( void );
+
+		ResHandle GetHandle( FSHFile *pHFile );
+		
+
+	private:
+
+		ResHandle Find( FSHFile *pHFile );
+		ResHandle Load( FSHFile *pHFile );
+		void Update( ResHandle resHandle );
+		BYTE * Allocate( SIZE_T size ); 
+
+	private:
+
+		typedef List< ResHandle > ResList;
+		typedef Map< String, ResHandle > ResMap;
+
+		ResList m_LRU;
+		ResMap m_resMap;
+
+		SIZE_T m_cacheSize;	// Total memory size
+		SIZE_T m_allocated;	// Total memory allocated
+
+	};
+}
+
+#endif /*_PSX_RESOURCE_CACHE_H_*/

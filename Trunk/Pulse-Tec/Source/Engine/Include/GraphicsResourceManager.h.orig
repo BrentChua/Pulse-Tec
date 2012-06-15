@@ -1,0 +1,58 @@
+/**************************************************************************************
+*
+*	Copyright (C) 2010 Brent Andrew O. Chua - See LICENSE.txt for more info.
+*		
+*	Filename	-	GraphicsResourceManager.h
+*
+*	Description -	Graphics resource management system.
+*
+*	Comments	-	
+*
+*	Modification History:
+*			Name			   Date					Description
+*			MrCodeSushi	-	10/25/2010	-	Creation of this file.
+**************************************************************************************/
+
+#ifndef _PSX_VERTEX_MANAGER_H_
+#define _PSX_VERTEX_MANAGER_H_
+
+#include "PulseSTD.h"
+#include "ResourcePool.h"
+#include "Singleton.h"
+#include "HashTable.h"
+#include "GraphicsTypes.h"
+#include "ResourceManager.h"
+#include "Texture2D.h"
+
+namespace Pulse
+{
+
+	class GraphicsResourceManager : public Singleton< GraphicsResourceManager >
+	{
+	public:
+
+		virtual ~GraphicsResourceManager( void );
+
+		// TODO: Add Create resources methods here
+		Texture2D * CreateTexture2D( const CHAR *pName, Texture2DDesc *pDesc );
+	private:
+
+		GraphicsResourceManager( void );
+
+		friend GraphicsDevice;
+		virtual EErrorCode::Type Initialize( void );
+
+		virtual void Cleanup( void );
+
+	private:
+		
+		friend Singleton;
+
+		ResourcePool< Texture2D > m_2Dtextures;
+
+	};
+
+
+}
+
+#endif /* _PSX_VERTEX_BUFFER_MANAGER_H_ */

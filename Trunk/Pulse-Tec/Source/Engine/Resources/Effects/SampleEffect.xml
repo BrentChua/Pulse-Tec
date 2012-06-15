@@ -1,0 +1,3 @@
+<Effect name ="SampleEffect">
+  <RenderPass  inputLayout ="" vertexShader ="" hullShader ="" domainShader ="" geometryShader =""  pixelShader ="" computeShader ="" />
+</Effect>

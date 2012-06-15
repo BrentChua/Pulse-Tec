@@ -1,0 +1,3 @@
+<InputLayout name ="SampleInputLayout">
+  <Element semanticName = "" semanticIndex = "" format = "" inputSlot = "" alignedByteOffset = "" inputClassification = "" instanceDataStepRate = "" />
+</InputLayout>

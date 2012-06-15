@@ -1,0 +1,9 @@
+<GUIButton>
+  <Information file ="defaultSkin.png" />
+  <States>
+    <Active x ="482" y="2" width="27" height="27"/>
+    <Highlighted x ="482" y="34" width="27" height="27"/>
+    <Pressed x ="482" y="66" width="27" height="27"/>
+    <Disabled x ="482" y="98" width="27" height="27"/>
+  </States>
+</GUIButton>
